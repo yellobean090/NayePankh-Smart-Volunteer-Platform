@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | NayePankh Foundation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-dove"></i>
+        NayePankh
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/about">About</a></li>
+
+        <li><a href="/volunteer">Volunteer</a></li>
+
+        <li><a href="/events">Events</a></li>
+
+        <li><a href="/dashboard">Dashboard</a></li>
+
+        <li><a href="/contact">Contact</a></li>
+
+    </ul>
+
+    <button id="dark-mode-toggle" class="theme-btn">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+</nav>
+
+<section class="section">
+
+    <h1 class="section-title">
+        About NayePankh Foundation
+    </h1>
+
+    <p class="section-text">
+
+        NayePankh Foundation is dedicated to empowering
+        communities through volunteer-driven initiatives,
+        educational programs, healthcare awareness, and
+        sustainable development projects.
+
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Our Mission</h3>
+
+            <p>
+
+                To create meaningful social impact by
+                mobilizing volunteers and resources
+                toward community development.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Our Vision</h3>
+
+            <p>
+
+                A society where every individual has
+                access to opportunities, dignity,
+                and support.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Our Objectives</h3>
+
+            <p>
+
+                Promote education, environmental
+                sustainability, healthcare awareness,
+                and youth engagement.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        Leadership Team
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <i class="fa-solid fa-user fa-3x"></i>
+
+            <h3>Founder</h3>
+
+            <p>
+
+                Visionary leadership driving the
+                foundation's mission.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-user-group fa-3x"></i>
+
+            <h3>Volunteer Coordinator</h3>
+
+            <p>
+
+                Managing volunteer engagement and
+                community partnerships.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-chart-line fa-3x"></i>
+
+            <h3>Program Manager</h3>
+
+            <p>
+
+                Ensuring successful execution of
+                campaigns and initiatives.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        Our Journey
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>2022</h3>
+
+            <p>
+
+                Foundation established with a focus
+                on education initiatives.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>2024</h3>
+
+            <p>
+
+                Expanded volunteer programs across
+                multiple cities.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>2026</h3>
+
+            <p>
+
+                Launching technology-driven NGO
+                management solutions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 NayePankh Foundation.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static',
+filename='js/main.js') }}"></script>
+
+<script src="{{ url_for('static',
+filename='js/darkmode.js') }}"></script>
+
+</body>
+</html>
