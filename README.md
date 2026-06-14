@@ -289,3 +289,4 @@ Through this project, the following competencies were demonstrated:
 ## Conclusion
 
 The NayePankh Smart Volunteer Management Platform demonstrates how technology can enhance the efficiency and impact of social organizations. The project combines modern web technologies, analytics, and artificial intelligence to create a scalable solution for NGO operations.
+.
