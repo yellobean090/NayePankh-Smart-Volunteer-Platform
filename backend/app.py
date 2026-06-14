@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from database import get_connection
-
+from ai.agent import recommend_opportunities
 app = Flask(__name__)
 
 
@@ -372,6 +372,42 @@ def get_stats():
         return jsonify({
 
             "success": False,
+            "message": str(e)
+
+        }), 500
+
+@app.route("/recommend", methods=["POST"])
+def recommend():
+
+    try:
+
+        data = request.get_json()
+
+        interests = data.get("interests", "")
+
+        availability = data.get("availability", "")
+
+        recommendations = recommend_opportunities(
+
+            interests,
+            availability
+
+        )
+
+        return jsonify({
+
+            "success": True,
+
+            "recommendations": recommendations
+
+        })
+
+    except Exception as e:
+
+        return jsonify({
+
+            "success": False,
+
             "message": str(e)
 
         }), 500

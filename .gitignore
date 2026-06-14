@@ -5,3 +5,4 @@ instance/
 venv/
 .env.local
 .DS_Store
+backend/*.env
