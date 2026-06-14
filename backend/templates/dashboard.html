@@ -18,7 +18,6 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 
 <body>
@@ -31,14 +30,12 @@
     </div>
 
     <ul class="nav-links">
-
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/volunteer">Volunteer</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
         <li><a href="/contact">Contact</a></li>
-
     </ul>
 
     <button id="dark-mode-toggle" class="theme-btn">
@@ -72,7 +69,11 @@
 
     <div class="card">
 
-        <h3>542</h3>
+        <h3 id="total-volunteers">
+
+            0
+
+        </h3>
 
         <p>Total Volunteers</p>
 
@@ -80,7 +81,11 @@
 
     <div class="card">
 
-        <h3>327</h3>
+        <h3 id="active-volunteers">
+
+            0
+
+        </h3>
 
         <p>Active Volunteers</p>
 
@@ -88,7 +93,11 @@
 
     <div class="card">
 
-        <h3>124</h3>
+        <h3 id="total-events">
+
+            0
+
+        </h3>
 
         <p>Total Events</p>
 
@@ -96,7 +105,11 @@
 
     <div class="card">
 
-        <h3>89</h3>
+        <h3 id="monthly-registrations">
+
+            0
+
+        </h3>
 
         <p>Registrations This Month</p>
 
@@ -119,21 +132,54 @@
 
         <div class="dashboard-actions">
 
-            <input type="text"
-                   placeholder="Search volunteers..."
-                   class="dashboard-input">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search volunteers..."
+                class="dashboard-input"
+            >
 
-            <select class="dashboard-input">
+            <select
+                id="skill-filter"
+                class="dashboard-input"
+            >
 
-                <option>Filter by Skill</option>
-                <option>Teaching</option>
-                <option>Design</option>
-                <option>Coding</option>
-                <option>Healthcare</option>
+                <option value="">
+
+                    All Skills
+
+                </option>
+
+                <option value="Teaching">
+
+                    Teaching
+
+                </option>
+
+                <option value="Design">
+
+                    Design
+
+                </option>
+
+                <option value="Coding">
+
+                    Coding
+
+                </option>
+
+                <option value="Healthcare">
+
+                    Healthcare
+
+                </option>
 
             </select>
 
-            <button class="btn primary-btn">
+            <button
+                id="export-btn"
+                class="btn primary-btn"
+            >
 
                 Export CSV
 
@@ -143,10 +189,55 @@
 
     </div>
 
+
+    <!-- VOLUNTEER TABLE -->
+
+    <div class="card" style="margin-top:30px; overflow-x:auto;">
+
+        <table class="volunteer-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>City</th>
+
+                    <th>Skills</th>
+
+                    <th>Interests</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="volunteer-table-body">
+
+                <tr>
+
+                    <td colspan="6">
+
+                        Loading volunteers...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 </section>
 
 
-<!-- CHARTS -->
+<!-- ANALYTICS -->
 
 <section class="section">
 
@@ -160,11 +251,7 @@
 
         <div class="card">
 
-            <h3>
-
-                Volunteer Growth
-
-            </h3>
+            <h3>Volunteer Growth</h3>
 
             <canvas id="volunteerChart"></canvas>
 
@@ -172,11 +259,7 @@
 
         <div class="card">
 
-            <h3>
-
-                Event Participation
-
-            </h3>
+            <h3>Event Participation</h3>
 
             <canvas id="eventChart"></canvas>
 
@@ -184,11 +267,7 @@
 
         <div class="card">
 
-            <h3>
-
-                Monthly Registrations
-
-            </h3>
+            <h3>Monthly Registrations</h3>
 
             <canvas id="registrationChart"></canvas>
 
@@ -196,11 +275,7 @@
 
         <div class="card">
 
-            <h3>
-
-                Skill Distribution
-
-            </h3>
+            <h3>Skill Distribution</h3>
 
             <canvas id="skillChart"></canvas>
 
@@ -233,8 +308,8 @@
 
             <p>
 
-                Volunteer registrations increased by
-                22% compared to the previous quarter.
+                Volunteer registrations increased
+                significantly through awareness campaigns.
 
             </p>
 
@@ -250,8 +325,8 @@
 
             <p>
 
-                Most volunteers prefer education
-                campaigns and mentoring initiatives.
+                Education-focused initiatives continue
+                to attract the highest participation.
 
             </p>
 
@@ -267,8 +342,8 @@
 
             <p>
 
-                Weekend events achieve the highest
-                volunteer participation rates.
+                Weekend events consistently show
+                stronger volunteer engagement.
 
             </p>
 
@@ -290,24 +365,6 @@
 
 </footer>
 
-
-<script src="{{ url_for('static',
-filename='js/main.js') }}"></script>
-
-<script src="{{ url_for('static',
-filename='js/darkmode.js') }}"></script>
-
-<script src="{{ url_for('static',
-filename='js/main.js') }}"></script>
-
-<script src="{{ url_for('static',
-filename='js/darkmode.js') }}"></script>
-
-<script src="{{ url_for('static',
-filename='js/dashboard.js') }}"></script>
-
-<script src="{{ url_for('static',
-filename='js/chatbot.js') }}"></script>
 
 <!-- CHATBOT -->
 
@@ -368,6 +425,16 @@ filename='js/chatbot.js') }}"></script>
 
 
 <script src="{{ url_for('static',
+filename='js/main.js') }}"></script>
+
+<script src="{{ url_for('static',
+filename='js/darkmode.js') }}"></script>
+
+<script src="{{ url_for('static',
+filename='js/dashboard.js') }}"></script>
+
+<script src="{{ url_for('static',
 filename='js/chatbot.js') }}"></script>
+
 </body>
 </html>

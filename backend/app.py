@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 from database import get_connection
 from ai.agent import recommend_opportunities
 from ai.chatbot import get_chatbot_response
+import csv
+import io
 app = Flask(__name__)
 
 
@@ -563,6 +565,161 @@ def analytics():
 
     })
 
+@app.route("/search-volunteers", methods=["GET"])
+def search_volunteers():
+
+    try:
+
+        name = request.args.get("name", "")
+        skill = request.args.get("skill", "")
+
+        connection = get_connection()
+
+        query = """
+            SELECT *
+            FROM volunteers
+            WHERE name LIKE ?
+            AND skills LIKE ?
+            ORDER BY registration_date DESC
+        """
+
+        volunteers = connection.execute(
+
+            query,
+
+            (
+
+                f"%{name}%",
+
+                f"%{skill}%"
+
+            )
+
+        ).fetchall()
+
+        connection.close()
+
+        return jsonify({
+
+            "success": True,
+
+            "count": len(volunteers),
+
+            "data": [
+
+                dict(v)
+
+                for v in volunteers
+
+            ]
+
+        })
+
+    except Exception as e:
+
+        return jsonify({
+
+            "success": False,
+
+            "message": str(e)
+
+        }), 500
+
+@app.route("/export-volunteers")
+def export_volunteers():
+
+    try:
+
+        connection = get_connection()
+
+        volunteers = connection.execute("""
+
+            SELECT *
+
+            FROM volunteers
+
+            ORDER BY registration_date DESC
+
+        """).fetchall()
+
+        connection.close()
+
+        output = io.StringIO()
+
+        writer = csv.writer(output)
+
+        writer.writerow([
+
+            "ID",
+
+            "Name",
+
+            "Email",
+
+            "Phone",
+
+            "City",
+
+            "Skills",
+
+            "Interests",
+
+            "Availability",
+
+            "Registration Date"
+
+        ])
+
+        for volunteer in volunteers:
+
+            writer.writerow([
+
+                volunteer["id"],
+
+                volunteer["name"],
+
+                volunteer["email"],
+
+                volunteer["phone"],
+
+                volunteer["city"],
+
+                volunteer["skills"],
+
+                volunteer["interests"],
+
+                volunteer["availability"],
+
+                volunteer["registration_date"]
+
+            ])
+
+        return Response(
+
+            output.getvalue(),
+
+            mimetype="text/csv",
+
+            headers={
+
+                "Content-Disposition":
+
+                "attachment; filename=volunteers.csv"
+
+            }
+
+        )
+
+    except Exception as e:
+
+        return jsonify({
+
+            "success": False,
+
+            "message": str(e)
+
+        }), 500
+    
 if __name__ == "__main__":
 
     print("NayePankh Backend Running Successfully!")
