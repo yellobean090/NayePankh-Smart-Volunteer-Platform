@@ -6,17 +6,17 @@
 
 ## Submitted By
 
-**Name:** ____________________
+**Name:** Shaurya Rao
 
-**College/University:** ____________________
+**College/University:** St. Lawrence School Unnao
 
-**Program:** ____________________
+**Program:** NayePankh Smart Volunteer
 
 **Internship Role:** Web Development / Backend Development / Python Development / AI Development Intern
 
 **Organization:** NayePankh Foundation
 
-**Submission Date:** ____________________
+**Submission Date:** 14/06/2026
 
 ---
 
