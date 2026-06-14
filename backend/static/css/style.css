@@ -768,3 +768,230 @@ body.dark-mode .volunteer-table th {
 
     color: var(--secondary);
 }
+/* ==========================
+   CHATBOT
+========================== */
+
+.chat-toggle {
+
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    z-index: 999;
+}
+
+
+.chatbot-container {
+
+    position: fixed;
+
+    bottom: 100px;
+    right: 25px;
+
+    width: 350px;
+
+    max-height: 500px;
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: var(--radius);
+
+    background: white;
+
+    box-shadow: var(--shadow);
+
+    z-index: 999;
+}
+
+
+.chat-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 20px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-weight: 600;
+}
+
+
+.chat-header button {
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+
+.chat-messages {
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    height: 320px;
+
+    background: #f5f5f5;
+}
+
+
+.chat-message {
+
+    margin-bottom: 15px;
+
+    padding: 12px 15px;
+
+    border-radius: 15px;
+
+    max-width: 85%;
+}
+
+
+.chat-message.bot {
+
+    background: white;
+
+    color: var(--text);
+
+    align-self: flex-start;
+}
+
+
+.chat-message.user {
+
+    background: var(--primary);
+
+    color: white;
+
+    margin-left: auto;
+}
+
+
+.chat-input-container {
+
+    display: flex;
+
+    padding: 15px;
+
+    gap: 10px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+.chat-input-container input {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+
+.chat-input-container button {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+}
+/* ==========================
+   CHATBOT DARK MODE
+========================== */
+
+body.dark-mode .chatbot-container {
+
+    background: #1e1e1e;
+}
+
+
+body.dark-mode .chat-messages {
+
+    background: #262626;
+}
+
+
+body.dark-mode .chat-message.bot {
+
+    background: #333;
+
+    color: white;
+}
+
+
+body.dark-mode .chat-message.user {
+
+    background: var(--secondary);
+
+    color: black;
+}
+
+
+body.dark-mode .chat-input-container {
+
+    background: #1e1e1e;
+
+    border-top: 1px solid #444;
+}
+
+
+body.dark-mode .chat-input-container input {
+
+    background: #333;
+
+    color: white;
+
+    border: 1px solid #555;
+}
+
+
+body.dark-mode .chat-input-container input::placeholder {
+
+    color: #bbb;
+}
