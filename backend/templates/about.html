@@ -246,5 +246,66 @@ filename='js/main.js') }}"></script>
 <script src="{{ url_for('static',
 filename='js/darkmode.js') }}"></script>
 
+<!-- CHATBOT -->
+
+<button id="chat-toggle" class="chat-toggle">
+
+    🤖
+
+</button>
+
+
+<div id="chatbot-container" class="chatbot-container">
+
+    <div class="chat-header">
+
+        <span>
+
+            NayePankh AI Assistant
+
+        </span>
+
+        <button id="chat-close">
+
+            ✕
+
+        </button>
+
+    </div>
+
+
+    <div id="chat-messages" class="chat-messages">
+
+        <div class="chat-message bot">
+
+            Hello! How can I help you today?
+
+        </div>
+
+    </div>
+
+
+    <div class="chat-input-container">
+
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Ask something..."
+        >
+
+        <button id="chat-send">
+
+            Send
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static',
+filename='js/chatbot.js') }}"></script>
+
 </body>
 </html>

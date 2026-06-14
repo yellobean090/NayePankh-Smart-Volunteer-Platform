@@ -297,91 +297,77 @@ filename='js/main.js') }}"></script>
 <script src="{{ url_for('static',
 filename='js/darkmode.js') }}"></script>
 
+<script src="{{ url_for('static',
+filename='js/main.js') }}"></script>
 
-<script>
+<script src="{{ url_for('static',
+filename='js/darkmode.js') }}"></script>
 
-new Chart(document.getElementById("volunteerChart"), {
+<script src="{{ url_for('static',
+filename='js/dashboard.js') }}"></script>
 
-    type: "line",
+<script src="{{ url_for('static',
+filename='js/chatbot.js') }}"></script>
 
-    data: {
+<!-- CHATBOT -->
 
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+<button id="chat-toggle" class="chat-toggle">
 
-        datasets: [{
+    🤖
 
-            label: "Volunteers",
-
-            data: [120, 160, 210, 280, 360, 420]
-
-        }]
-
-    }
-
-});
+</button>
 
 
-new Chart(document.getElementById("eventChart"), {
+<div id="chatbot-container" class="chatbot-container">
 
-    type: "bar",
+    <div class="chat-header">
 
-    data: {
+        <span>
 
-        labels: ["Education", "Health", "Environment"],
+            NayePankh AI Assistant
 
-        datasets: [{
+        </span>
 
-            label: "Participants",
+        <button id="chat-close">
 
-            data: [180, 140, 200]
+            ✕
 
-        }]
+        </button>
 
-    }
-
-});
+    </div>
 
 
-new Chart(document.getElementById("registrationChart"), {
+    <div id="chat-messages" class="chat-messages">
 
-    type: "line",
+        <div class="chat-message bot">
 
-    data: {
+            Hello! How can I help you today?
 
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        </div>
 
-        datasets: [{
-
-            label: "Registrations",
-
-            data: [30, 42, 48, 60, 70, 89]
-
-        }]
-
-    }
-
-});
+    </div>
 
 
-new Chart(document.getElementById("skillChart"), {
+    <div class="chat-input-container">
 
-    type: "pie",
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Ask something..."
+        >
 
-    data: {
+        <button id="chat-send">
 
-        labels: ["Teaching", "Design", "Coding", "Healthcare"],
+            Send
 
-        datasets: [{
+        </button>
 
-            data: [45, 20, 15, 20]
+    </div>
 
-        }]
+</div>
 
-    }
 
-});
-
-</script>
-
+<script src="{{ url_for('static',
+filename='js/chatbot.js') }}"></script>
 </body>
 </html>

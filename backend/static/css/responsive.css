@@ -76,3 +76,15 @@
         width: 100%;
     }
 }
+@media (max-width: 768px) {
+
+    .chatbot-container {
+
+        width: 90%;
+
+        right: 5%;
+
+        bottom: 100px;
+    }
+
+}

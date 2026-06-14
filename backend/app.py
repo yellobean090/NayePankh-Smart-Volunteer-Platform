@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from database import get_connection
 from ai.agent import recommend_opportunities
+from ai.chatbot import get_chatbot_response
 app = Flask(__name__)
 
 
@@ -411,6 +412,156 @@ def recommend():
             "message": str(e)
 
         }), 500
+
+# ==========================
+# AI CHATBOT API
+# ==========================
+
+@app.route("/chat", methods=["POST"])
+def chat():
+
+    try:
+
+        data = request.get_json()
+
+        message = data.get("message")
+
+        if not message:
+
+            return jsonify({
+
+                "success": False,
+                "message": "Message is required."
+
+            }), 400
+
+        response = get_chatbot_response(
+
+            message
+
+        )
+
+        return jsonify(
+
+            response
+
+        )
+
+    except Exception as e:
+
+        return jsonify({
+
+            "success": False,
+            "message": str(e)
+
+        }), 500
+
+@app.route("/analytics")
+def analytics():
+
+    return jsonify({
+
+        "success": True,
+
+        "data": {
+
+            "volunteer_growth": {
+
+                "labels": [
+
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun"
+
+                ],
+
+                "values": [
+
+                    120,
+                    160,
+                    210,
+                    280,
+                    360,
+                    420
+
+                ]
+
+            },
+
+            "event_participation": {
+
+                "labels": [
+
+                    "Education",
+                    "Health",
+                    "Environment"
+
+                ],
+
+                "values": [
+
+                    180,
+                    140,
+                    200
+
+                ]
+
+            },
+
+            "monthly_registrations": {
+
+                "labels": [
+
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun"
+
+                ],
+
+                "values": [
+
+                    30,
+                    42,
+                    48,
+                    60,
+                    70,
+                    89
+
+                ]
+
+            },
+
+            "skill_distribution": {
+
+                "labels": [
+
+                    "Teaching",
+                    "Design",
+                    "Coding",
+                    "Healthcare"
+
+                ],
+
+                "values": [
+
+                    45,
+                    20,
+                    15,
+                    20
+
+                ]
+
+            }
+
+        }
+
+    })
 
 if __name__ == "__main__":
 

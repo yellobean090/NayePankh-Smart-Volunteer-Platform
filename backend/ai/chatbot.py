@@ -265,4 +265,4 @@ Assistant:
 
 def clear_chat_history():
 
-    conversation_history.clear()
+    conversation_history.clear()    
